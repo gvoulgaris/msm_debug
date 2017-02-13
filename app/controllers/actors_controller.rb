@@ -5,6 +5,7 @@ class ActorsController < ApplicationController
 
   def show
     @actor = Actor.find(params[:id])
+    render("show.html.erb")
   end
 
   def new_form
@@ -23,6 +24,7 @@ class ActorsController < ApplicationController
   end
 
   def edit_form
+    current_id = params[:id]
     @actor = Actor.find(params[:id])
   end
 
@@ -36,7 +38,7 @@ class ActorsController < ApplicationController
 
     @actor.save
 
-    render("show")
+    render("actors/show.html.erb")
   end
 
   def destroy
